@@ -1,5 +1,7 @@
 package pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,8 +16,10 @@ import java.util.List;
 public class BaseFunc {
     private WebDriver browser;
     private WebDriverWait wait;
+    private final Logger LOGGER = LogManager.getLogger(this.getClass());
 
     public BaseFunc() {
+        LOGGER.info("Open browser window");
         browser = new ChromeDriver();
         browser.manage().window().maximize();
 
@@ -23,6 +27,7 @@ public class BaseFunc {
     }
 
     public void openUrl(String url) {
+        LOGGER.info("Open webpage" + url);
         if (!url.startsWith("http://") && !url.startsWith("https://")) {
             url = "http://" + url;
         }

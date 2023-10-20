@@ -88,7 +88,7 @@ Feature: Weather forecast
     And daily wind_gust is 16.48
 
     And daily weather details are:
-      | id          | 500
+      | id          | 500       |
       | main        | Rain      |
       | description | lightrain |
       | icon        | 10d       |

@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
-public class TickerRequester {
+public class TicketRequester {
     private final String URL = "http://www.qaguru.lv:8089/tickets/getReservations.php";
 
     public List<Reservation> getReservations() throws JsonProcessingException {

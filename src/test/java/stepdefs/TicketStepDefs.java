@@ -1,7 +1,6 @@
 package stepdefs;
 
 import io.cucumber.core.internal.com.fasterxml.jackson.core.JsonProcessingException;
-import io.cucumber.java.be.I;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,7 +11,7 @@ import org.junit.jupiter.api.Assertions;
 import pages.BaseFunc;
 import pages.HomePage;
 import pages.PassengerInfoPage;
-import requesters.TickerRequester;
+import requesters.TicketRequester;
 
 import java.util.List;
 import java.util.Map;
@@ -69,7 +68,7 @@ public class TicketStepDefs {
 
     @When("we are requesting all reservation via API")
     public void request_all_reservation() throws JsonProcessingException {
-        TickerRequester requester = new TickerRequester();
+        TicketRequester requester = new TicketRequester();
         reservations = requester.getReservations();
     }
 
