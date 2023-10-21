@@ -9,7 +9,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 import requesters.WeatherRequester;
-
 import java.util.Map;
 
 public class WeatherStepDefs {
@@ -55,7 +54,7 @@ public class WeatherStepDefs {
         Assertions.assertEquals(Long.parseLong(params.get("sunrise")), response.getCurrent().getSunrise(), "Incorrect Sunrise!");
         Assertions.assertEquals(Long.parseLong(params.get("sunset")), response.getCurrent().getSunset(), "Incorrect Sunset!");
         Assertions.assertEquals(Double.parseDouble(params.get("temp")), response.getCurrent().getTemp(), "Incorrect Temp!");
-        Assertions.assertEquals(Double.parseDouble(params.get("feels_like")), response.getCurrent().getFeelsLike(), "Incorrect Feels_like!");
+        Assertions.assertEquals(Double.parseDouble(params.get("feel_like")), response.getCurrent().getFeelsLike(), "Incorrect Feel_like!");
         Assertions.assertEquals(Integer.parseInt(params.get("pressure")), response.getCurrent().getPressure(), "Incorrect Pressure!");
         Assertions.assertEquals(Integer.parseInt(params.get("humidity")), response.getCurrent().getHumidity(), "Incorrect Humidity!");
         Assertions.assertEquals(Double.parseDouble(params.get("dew_point")), response.getCurrent().getDewPoint(), "Incorrect Dew_point");
@@ -69,40 +68,40 @@ public class WeatherStepDefs {
 
     @Then("current weather details are:")
     public void current_weather_details_check(Map<String, String> params){
-        Assertions.assertEquals(Long.parseLong(params.get("id")), response.getCurrent().getWeathers().get(0).getId(), "Incorrect current weather ID!");
-        Assertions.assertEquals(params.get("main"), response.getCurrent().getWeathers().get(0).getMain(), "Incorrect current weather Main!");
-        Assertions.assertEquals(params.get("description"), response.getCurrent().getWeathers().get(0).getDescription(), "Incorrect current weather Description!");
-        Assertions.assertEquals(params.get("icon"), response.getCurrent().getWeathers().get(0).getIcon(), "Incorrect current weather Icon!");
+        Assertions.assertEquals(Long.parseLong(params.get("id")), response.getCurrent().getWeathers().get(0).getId(), "Incorrect current weather details ID!");
+        Assertions.assertEquals(params.get("main"), response.getCurrent().getWeathers().get(0).getMain(), "Incorrect current weather details Main!");
+        Assertions.assertEquals(params.get("description"), response.getCurrent().getWeathers().get(0).getDescription(), "Incorrect current weather details Description!");
+        Assertions.assertEquals(params.get("icon"), response.getCurrent().getWeathers().get(0).getIcon(), "Incorrect current weather details Icon!");
     }
 
     @Then("minutely weather data are:")
     public void minutely_weather_data_check(Map<String, String> params){
-        Assertions.assertEquals(Long.parseLong(params.get("dt")), response.getMinutelies().get(0).getDt(), "Incorrect minutely dt!");
-        Assertions.assertEquals(Integer.parseInt(params.get("precipitation")), response.getMinutelies().get(0).getPrecipitation(), "Incorrect minutely precipitation!");
+        Assertions.assertEquals(Long.parseLong(params.get("dt")), response.getMinutelies().get(0).getDt(), "Incorrect minutely weather dt!");
+        Assertions.assertEquals(Integer.parseInt(params.get("precipitation")), response.getMinutelies().get(0).getPrecipitation(), "Incorrect minutely weather precipitation!");
     }
 
     @Then("hourly weather data are:")
     public void hourly_weather_data_check(Map<String, String> params){
-        Assertions.assertEquals(Long.parseLong(params.get("dt")), response.getHourlies().get(0).getDt(), "Incorrect hourly dt!");
-        Assertions.assertEquals(Double.parseDouble(params.get("temp")), response.getHourlies().get(0).getTemp(), "Incorrect hourly temp!");
-        Assertions.assertEquals(Double.parseDouble(params.get("feels_like")), response.getHourlies().get(0).getFeelsLike(), "Incorrect hourly Feels Like!");
-        Assertions.assertEquals(Integer.parseInt(params.get("pressure")), response.getHourlies().get(0).getPressure(), "Incorrect hourly Pressure!");
-        Assertions.assertEquals(Integer.parseInt(params.get("humidity")), response.getHourlies().get(0).getHumidity(), "Incorrect hourly Humidity!");
-        Assertions.assertEquals(Double.parseDouble(params.get("dew_point")), response.getHourlies().get(0).getDewPoint(), "Incorrect hourly Dew Point!");
-        Assertions.assertEquals(Double.parseDouble(params.get("uvi")), response.getHourlies().get(0).getUvi(), "Incorrect hourly Uvi!");
-        Assertions.assertEquals(Integer.parseInt(params.get("clouds")), response.getHourlies().get(0).getClouds(), "Incorrect hourly Clouds!");
-        Assertions.assertEquals(Integer.parseInt(params.get("visibility")), response.getHourlies().get(0).getVisibility(), "Incorrect hourly Visibility!");
-        Assertions.assertEquals(Double.parseDouble(params.get("wind_speed")), response.getHourlies().get(0).getWindSpeed(), "Incorrect hourly Wind Speed!");
-        Assertions.assertEquals(Integer.parseInt(params.get("wind_deg")), response.getHourlies().get(0).getWindDeg(), "Incorrect hourly Wind Deg!");
-        Assertions.assertEquals(Double.parseDouble(params.get("wind_gust")), response.getHourlies().get(0).getWindGust(), "Incorrect hourly Wind Gust!");
+        Assertions.assertEquals(Long.parseLong(params.get("dt")), response.getHourlies().get(0).getDt(), "Incorrect hourly weather dt!");
+        Assertions.assertEquals(Double.parseDouble(params.get("temp")), response.getHourlies().get(0).getTemp(), "Incorrect hourly weather temp!");
+        Assertions.assertEquals(Double.parseDouble(params.get("feels_like")), response.getHourlies().get(0).getFeelsLike(), "Incorrect hourly weather Feels Like!");
+        Assertions.assertEquals(Integer.parseInt(params.get("pressure")), response.getHourlies().get(0).getPressure(), "Incorrect hourly weather Pressure!");
+        Assertions.assertEquals(Integer.parseInt(params.get("humidity")), response.getHourlies().get(0).getHumidity(), "Incorrect hourly weather Humidity!");
+        Assertions.assertEquals(Double.parseDouble(params.get("dew_point")), response.getHourlies().get(0).getDewPoint(), "Incorrect hourly weather Dew Point!");
+        Assertions.assertEquals(Double.parseDouble(params.get("uvi")), response.getHourlies().get(0).getUvi(), "Incorrect hourly weather Uvi!");
+        Assertions.assertEquals(Integer.parseInt(params.get("clouds")), response.getHourlies().get(0).getClouds(), "Incorrect hourly weather Clouds!");
+        Assertions.assertEquals(Integer.parseInt(params.get("visibility")), response.getHourlies().get(0).getVisibility(), "Incorrect hourly weather Visibility!");
+        Assertions.assertEquals(Double.parseDouble(params.get("wind_speed")), response.getHourlies().get(0).getWindSpeed(), "Incorrect hourly weather Wind Speed!");
+        Assertions.assertEquals(Integer.parseInt(params.get("wind_deg")), response.getHourlies().get(0).getWindDeg(), "Incorrect hourly weather Wind Deg!");
+        Assertions.assertEquals(Double.parseDouble(params.get("wind_gust")), response.getHourlies().get(0).getWindGust(), "Incorrect hourly weather Wind Gust!");
     }
 
     @Then("hourly weather details are:")
     public void hourly_weather_details_check(Map<String, String> params){
-        Assertions.assertEquals(Long.parseLong(params.get("id")), response.getHourlies().get(0).getWeathers().get(0).getId(), "Incorrect hourly weather ID!");
-        Assertions.assertEquals(params.get("main"), response.getHourlies().get(0).getWeathers().get(0).getMain(), "Incorrect hourly weather Main!");
-        Assertions.assertEquals(params.get("description"), response.getHourlies().get(0).getWeathers().get(0).getDescription(), "Incorrect hourly weather Description!");
-        Assertions.assertEquals(params.get("icon"), response.getHourlies().get(0).getWeathers().get(0).getIcon(), "Incorrect hourly weather Icon!");
+        Assertions.assertEquals(Long.parseLong(params.get("id")), response.getHourlies().get(0).getWeathers().get(0).getId(), "Incorrect hourly weather details ID!");
+        Assertions.assertEquals(params.get("main"), response.getHourlies().get(0).getWeathers().get(0).getMain(), "Incorrect hourly weather details Main!");
+        Assertions.assertEquals(params.get("description"), response.getHourlies().get(0).getWeathers().get(0).getDescription(), "Incorrect hourly weather details Description!");
+        Assertions.assertEquals(params.get("icon"), response.getHourlies().get(0).getWeathers().get(0).getIcon(), "Incorrect hourly weather details Icon!");
     }
 
     @Then("hourly pop is {double}")
@@ -112,30 +111,30 @@ public class WeatherStepDefs {
 
     @Then("daily weather data are:")
     public void daily_weather_data_check(Map<String, String> params){
-        Assertions.assertEquals(Long.parseLong(params.get("dt")), response.getDailies().get(0).getDt(), "Incorrect daily dt!");
-        Assertions.assertEquals(Long.parseLong(params.get("sunrise")), response.getDailies().get(0).getSunrise() ,"Incorrect daily sunrise!");
-        Assertions.assertEquals(Long.parseLong(params.get("sunset")), response.getDailies().get(0).getSunset() ,"Incorrect daily sunsete!");
-        Assertions.assertEquals(Long.parseLong(params.get("moonrise")), response.getDailies().get(0).getMoonrise() ,"Incorrect daily moonrise!");
-        Assertions.assertEquals(Long.parseLong(params.get("moonset")), response.getDailies().get(0).getMoonset() ,"Incorrect daily moonset!");
-        Assertions.assertEquals(Double.parseDouble(params.get("moon_phase")), response.getDailies().get(0).getMoonPhase() ,"Incorrect daily moon phase!");
+        Assertions.assertEquals(Long.parseLong(params.get("dt")), response.getDailies().get(0).getDt(), "Incorrect daily weather dt!");
+        Assertions.assertEquals(Long.parseLong(params.get("sunrise")), response.getDailies().get(0).getSunrise() ,"Incorrect daily weather sunrise!");
+        Assertions.assertEquals(Long.parseLong(params.get("sunset")), response.getDailies().get(0).getSunset() ,"Incorrect daily weather sunset!");
+        Assertions.assertEquals(Long.parseLong(params.get("moonrise")), response.getDailies().get(0).getMoonrise() ,"Incorrect daily weather moonrise!");
+        Assertions.assertEquals(Long.parseLong(params.get("moonset")), response.getDailies().get(0).getMoonset() ,"Incorrect daily weather moonset!");
+        Assertions.assertEquals(Double.parseDouble(params.get("moon_phase")), response.getDailies().get(0).getMoonPhase() ,"Incorrect daily weather moon phase!");
     }
 
     @Then("daily temp weather details is:")
     public void daily_temp_weather_details_check(Map<String, Double> params){
-        Assertions.assertEquals(params.get("day"), response.getDailies().get(0).getTemp().getDay(), "Incorrect daily temp day!");
-        Assertions.assertEquals(params.get("min"), response.getDailies().get(0).getTemp().getMin(), "Incorrect daily temp !");
-        Assertions.assertEquals(params.get("max"), response.getDailies().get(0).getTemp().getMax(), "Incorrect daily temp !");
-        Assertions.assertEquals(params.get("night"), response.getDailies().get(0).getTemp().getNight(), "Incorrect daily temp !");
-        Assertions.assertEquals(params.get("eve"), response.getDailies().get(0).getTemp().getEve(), "Incorrect daily temp !");
-        Assertions.assertEquals(params.get("morn"), response.getDailies().get(0).getTemp().getMorn(), "Incorrect daily temp !");
+        Assertions.assertEquals(params.get("day"), response.getDailies().get(0).getTemp().getDay(), "Incorrect daily temp weather details day!");
+        Assertions.assertEquals(params.get("min"), response.getDailies().get(0).getTemp().getMin(), "Incorrect daily temp weather details min!");
+        Assertions.assertEquals(params.get("max"), response.getDailies().get(0).getTemp().getMax(), "Incorrect daily temp weather details max!");
+        Assertions.assertEquals(params.get("night"), response.getDailies().get(0).getTemp().getNight(), "Incorrect daily temp weather details night!");
+        Assertions.assertEquals(params.get("eve"), response.getDailies().get(0).getTemp().getEve(), "Incorrect daily temp weather details eve!");
+        Assertions.assertEquals(params.get("morn"), response.getDailies().get(0).getTemp().getMorn(), "Incorrect daily temp weather details morn!");
     }
 
     @Then("daily feels_like details is:")
     public void daily_feels_like_details_check(Map<String, Double> params){
-        Assertions.assertEquals(params.get("day"), response.getDailies().get(0).getFeelsLike().getDay(), "Incorrect daily feels like day!");
-        Assertions.assertEquals(params.get("night"), response.getDailies().get(0).getFeelsLike().getNight(), "Incorrect daily feels like night!");
-        Assertions.assertEquals(params.get("eve"), response.getDailies().get(0).getFeelsLike().getEve(), "Incorrect daily feels like eve!");
-        Assertions.assertEquals(params.get("morn"), response.getDailies().get(0).getFeelsLike().getMorn(), "Incorrect daily feels like morn!");
+        Assertions.assertEquals(params.get("day"), response.getDailies().get(0).getFeelsLike().getDay(), "Incorrect daily feels like details day!");
+        Assertions.assertEquals(params.get("night"), response.getDailies().get(0).getFeelsLike().getNight(), "Incorrect daily feels like details night!");
+        Assertions.assertEquals(params.get("eve"), response.getDailies().get(0).getFeelsLike().getEve(), "Incorrect daily feels like details eve!");
+        Assertions.assertEquals(params.get("morn"), response.getDailies().get(0).getFeelsLike().getMorn(), "Incorrect daily feels like details morn!");
     }
 
     @Then("daily pressure is {int}")
@@ -170,10 +169,10 @@ public class WeatherStepDefs {
 
     @Then("daily weather details are:")
     public void daily_weather_details_check(Map<String, String> param){
-        Assertions.assertEquals(Integer.parseInt(param.get("id")), response.getDailies().get(0).getWeathers().get(0).getId(), "Incorrect daily weather id!");
-        Assertions.assertEquals(param.get("main"), response.getDailies().get(0).getWeathers().get(0).getMain(), "Incorrect daily weather main!");
-        Assertions.assertEquals(param.get("description"), response.getDailies().get(0).getWeathers().get(0).getDescription(), "Incorrect daily weather description!");
-        Assertions.assertEquals(param.get("icon"), response.getDailies().get(0).getWeathers().get(0).getIcon(), "Incorrect daily weather icon!");
+        Assertions.assertEquals(Integer.parseInt(param.get("id")), response.getDailies().get(0).getWeathers().get(0).getId(), "Incorrect daily weather details id!");
+        Assertions.assertEquals(param.get("main"), response.getDailies().get(0).getWeathers().get(0).getMain(), "Incorrect daily weather details main!");
+        Assertions.assertEquals(param.get("description"), response.getDailies().get(0).getWeathers().get(0).getDescription(), "Incorrect daily weather details description!");
+        Assertions.assertEquals(param.get("icon"), response.getDailies().get(0).getWeathers().get(0).getIcon(), "Incorrect daily weather details icon!");
     }
 
     @Then("daily clouds is {int}")
@@ -198,20 +197,16 @@ public class WeatherStepDefs {
 
     @Then("alerts weather data are:")
     public void alerts_weather_data_check(Map<String, String> params){
-        Assertions.assertEquals(params.get("sender_name"), response.getAlerts().get(0).getSenderName(), "Incorrect alerts sender name!");
-        Assertions.assertEquals(params.get("event"), response.getAlerts().get(0).getEvent(), "Incorrect alerts event!");
-        Assertions.assertEquals(Double.parseDouble(params.get("start")), response.getAlerts().get(0).getStart(), "Incorrect alerts start!");
-        Assertions.assertEquals(Double.parseDouble(params.get("end")), response.getAlerts().get(0).getEnd(), "Incorrect alerts end!");
-        Assertions.assertEquals(params.get("description"), response.getAlerts().get(0).getDescription(), "Incorrect alerts description");
+        Assertions.assertEquals(params.get("sender_name"), response.getAlerts().get(0).getSenderName(), "Incorrect alerts weather sender name!");
+        Assertions.assertEquals(params.get("event"), response.getAlerts().get(0).getEvent(), "Incorrect alerts weather event!");
+        Assertions.assertEquals(Double.parseDouble(params.get("start")), response.getAlerts().get(0).getStart(), "Incorrect alerts weather start!");
+        Assertions.assertEquals(Double.parseDouble(params.get("end")), response.getAlerts().get(0).getEnd(), "Incorrect alerts weather end!");
+        Assertions.assertEquals(params.get("description"), response.getAlerts().get(0).getDescription(), "Incorrect alerts weather description");
     }
 
-    @Then("alerts tags details are blank")
+    @Then("alerts tags details list is blank")
     public void alerts_tags_details_check(){
-        Assertions.assertNull(response.getAlerts().get(0).getTags(), "Alerts tags is not blank!");
+        Assertions.assertNotNull(response.getAlerts().get(0).getTags(), "Alerts tags is not blank!");
+        Assertions.assertEquals(0, response.getAlerts().get(0).getTags().size(), "Alerts tags is not blank!");
     }
-
-
-
-
-
 }

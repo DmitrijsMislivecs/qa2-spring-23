@@ -80,7 +80,7 @@ Feature: Weather forecast
       | eve   | 273.35 |
       | morn  | 277.66 |
 
-    And daily pressure is 1026
+    And daily pressure is 1016
     And daily humidity is 55
     And daily dew_point is 273.12
     And daily wind_speed is 9.29
@@ -105,5 +105,5 @@ Feature: Weather forecast
       | end         | 1646380800                                                                                                                                                                                                                                                                                                                                                                                                                            |
       | description | ...SMALLCRAFTADVISORYREMAINSINEFFECTFROM5PMTHIS\nAFTERNOONTO3AMESTFRIDAY...\n*WHAT...Northwinds15to20ktwithgustsupto25ktandseas\n3to5ftexpected.\n*WHERE...CoastalwatersfromLittleEggInlettoGreatEgg\nInletNJout20nm,CoastalwatersfromGreatEggInletto\nCapeMayNJout20nmandCoastalwatersfromManasquanInlet\ntoLittleEggInletNJout20nm.\n*WHEN...From5PMthisafternoonto3AMESTFriday.\n*IMPACTS...Conditionswillbehazardoustosmallcraft. |
 
-    And alerts tags details are blank
+    And alerts tags details list is blank
     
